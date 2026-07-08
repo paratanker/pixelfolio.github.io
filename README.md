@@ -82,6 +82,71 @@ Also update:
 
 External links that should be gated behind a simple bot-check (e.g. resume/project links) use the `GatedLink` component instead of a plain `<a>`.
 
+## 🚀 Deployment
+
+`npm run build` outputs a static site to `dist/` — no server/backend required, so any static host works.
+
+<details>
+<summary><b>▲ Vercel</b></summary>
+
+1. Import the repo at [vercel.com/new](https://vercel.com/new).
+2. Framework preset: **Vite** (auto-detected). Build command `npm run build`, output dir `dist`.
+3. Deploy — every push to `main` redeploys automatically.
+
+Or via CLI: `npx vercel --prod`
+
+</details>
+
+<details>
+<summary><b>◆ Netlify</b></summary>
+
+1. [app.netlify.com](https://app.netlify.com) → **Add new site** → import the repo.
+2. Build command `npm run build`, publish directory `dist`.
+3. Deploy — every push to `main` redeploys automatically.
+
+Or via CLI: `npx netlify deploy --prod --dir=dist`
+
+</details>
+
+<details>
+<summary><b>🐙 GitHub Pages</b></summary>
+
+1. In `vite.config.js`, set `base: '/<your-repo-name>/'` (skip this if deploying to a custom domain or a `<user>.github.io` repo).
+2. Add a workflow at `.github/workflows/deploy.yml`:
+
+   ```yaml
+   name: Deploy to GitHub Pages
+   on:
+     push:
+       branches: [main]
+   permissions:
+     contents: read
+     pages: write
+     id-token: write
+   jobs:
+     deploy:
+       runs-on: ubuntu-latest
+       environment:
+         name: github-pages
+         url: ${{ steps.deployment.outputs.page_url }}
+       steps:
+         - uses: actions/checkout@v4
+         - uses: actions/setup-node@v4
+           with:
+             node-version: 20
+         - run: npm ci
+         - run: npm run build
+         - uses: actions/upload-pages-artifact@v3
+           with:
+             path: dist
+         - uses: actions/deploy-pages@v4
+           id: deployment
+   ```
+
+3. In the repo **Settings → Pages**, set **Source** to "GitHub Actions".
+
+</details>
+
 ---
 
 <p align="center">Made for adventurers who ship code. 🗡️✨</p>
