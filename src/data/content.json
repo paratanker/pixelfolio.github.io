@@ -1,0 +1,184 @@
+{
+  "site": {
+    "brand": "YOUR NAME",
+    "footerCopyright": "© 2026 Your Name"
+  },
+  "nav": [
+    { "href": "#top", "label": "Stats" },
+    { "href": "#profile", "label": "About" },
+    { "href": "#experience", "label": "Quests" },
+    { "href": "#projects", "label": "Missions" },
+    { "href": "#skills", "label": "Skills" },
+    { "href": "#credentials", "label": "Trophies" },
+    { "href": "#contact", "label": "Contact" }
+  ],
+  "social": {
+    "linkedin": "https://linkedin.com/in/your-handle",
+    "github": "https://github.com/your-handle"
+  },
+  "contact": {
+    "emailB64": "eW91QGV4YW1wbGUuY29t",
+    "phoneB64": "MTAwMDAwMDAwMDA=",
+    "resumeMessage": "Hi, could I get a copy of your resume?"
+  },
+  "hero": {
+    "eyebrow": "Your Title · Your City, Country",
+    "name": "YOUR NAME",
+    "subtitle": "Your Role · One-line pitch about what you do",
+    "description": "A couple of sentences summarizing your experience and what kind of work you're looking for.",
+    "stats": [
+      { "value": "5+", "label": "YEARS EXPERIENCE" },
+      { "value": "{{missionsShipped}}+", "label": "PROJECTS SHIPPED" },
+      { "value": "3", "label": "INDUSTRIES SERVED" }
+    ],
+    "stack": [
+      { "label": "React", "accent": true },
+      { "label": "Node.js", "accent": true },
+      { "label": "PostgreSQL", "accent": true },
+      { "label": "AWS", "accent": true }
+    ],
+    "location": "YOUR CITY, COUNTRY"
+  },
+  "about": {
+    "eyebrow": "About Me",
+    "title": "A short, punchy line about your career so far.",
+    "story": {
+      "heading": "My Story",
+      "paragraphs": [
+        "A paragraph about your background, the kind of systems/products you build, and the technologies you specialize in.",
+        "A second paragraph highlighting notable experience — industries you've worked in, standout projects, or a career narrative."
+      ]
+    },
+    "care": {
+      "heading": "What I Care About",
+      "paragraphs": [
+        "A paragraph about your engineering values — code quality, architecture, collaboration, whatever matters to you.",
+        "A second paragraph about how you like to work or what kind of teams/projects you thrive in."
+      ]
+    }
+  },
+  "questLog": {
+    "eyebrow": "Quest Log",
+    "title": "A career, told newest first."
+  },
+  "quests": [
+    {
+      "status": "active",
+      "title": "Your Current Role",
+      "giver": "Current Company",
+      "duration": "MON YEAR — PRESENT",
+      "objectives": [
+        "A bullet point describing a key responsibility or achievement.",
+        "Another bullet point about impact or ownership.",
+        "A third bullet point, e.g. tools/process you introduced."
+      ]
+    },
+    {
+      "status": "complete",
+      "title": "Previous Role",
+      "giver": "Previous Company",
+      "duration": "MON YEAR — MON YEAR",
+      "objectives": [
+        "A bullet point describing a key responsibility or achievement.",
+        "Another bullet point about impact or ownership.",
+        "A third bullet point, e.g. a system you built or improved."
+      ]
+    },
+    {
+      "status": "complete",
+      "title": "Earlier Role",
+      "giver": "Earlier Company",
+      "duration": "MON YEAR — MON YEAR",
+      "objectives": [
+        "A bullet point describing a key responsibility or achievement.",
+        "Another bullet point about impact or ownership."
+      ]
+    }
+  ],
+  "missions": {
+    "eyebrow": "Missions Cleared",
+    "title": "Projects shipped, by company.",
+    "disclaimer": "Optional note about how these projects were delivered (e.g. as an employee/contractor, as part of a team) and any confidentiality caveats."
+  },
+  "missionGroups": [
+    {
+      "name": "Current Company",
+      "projects": [
+        {
+          "name": "Project Name",
+          "org": "One-line description",
+          "href": "https://example.com/"
+        }
+      ]
+    },
+    {
+      "name": "Previous Company",
+      "projects": [
+        { "name": "Project Name", "org": "One-line description" },
+        {
+          "name": "Project Name",
+          "org": "One-line description",
+          "href": "https://example.com/",
+          "screenshot": "https://image.thum.io/get/width/600/crop/360/noanimate/https://example.com/"
+        }
+      ]
+    }
+  ],
+  "skills": {
+    "eyebrow": "Skill Tree",
+    "title": "The loadout, current as of today."
+  },
+  "skillGroups": [
+    {
+      "label": "BACKEND & FRAMEWORKS",
+      "chips": ["Node.js", "Express", "Django", "Rails"]
+    },
+    {
+      "label": "FRONTEND",
+      "chips": ["React", "Vue", "TypeScript", "Tailwind CSS"]
+    },
+    {
+      "label": "DATABASE & SQL",
+      "chips": ["PostgreSQL", "MySQL", "Redis", "MongoDB"]
+    },
+    {
+      "label": "API & INTEGRATIONS",
+      "chips": ["REST", "GraphQL", "Webhooks"]
+    },
+    {
+      "label": "TESTING & DEVOPS",
+      "chips": ["Jest", "Docker", "GitHub Actions", "AWS"]
+    },
+    {
+      "label": "TOOLS & OTHERS",
+      "chips": ["Git", "Linux", "Jira", "Figma"]
+    },
+    { "label": "METHODOLOGIES", "chips": ["Agile / Scrum", "Kanban"] }
+  ],
+  "credentials": {
+    "eyebrow": "Trophy Case",
+    "title": "Education, languages, and achievements.",
+    "education": [
+      {
+        "title": "BSc (Hons) in Computer Science",
+        "meta": "20XX–20XX · Your University"
+      }
+    ],
+    "languages": [
+      { "title": "English", "meta": "Native" },
+      { "title": "Another Language", "meta": "Conversational" }
+    ],
+    "trophies": [
+      {
+        "title": "Award or Certification Name",
+        "meta": "20XX · Issuing Organization"
+      }
+    ]
+  },
+  "contactSection": {
+    "eyebrow": "Continue?",
+    "title": "Got a role that needs a steady hand?",
+    "description": "A sentence about what kind of roles/engagements you're open to.",
+    "footerNote": "Want a copy of my resume? Message me on WhatsApp or email."
+  }
+}
