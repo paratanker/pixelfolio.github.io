@@ -2,6 +2,7 @@ import Level from './Level'
 import LevelNav from './LevelNav'
 import SectionHead from './SectionHead'
 import { CARD, HEADING } from '../styles'
+import { asset } from '../utils/asset'
 import content from '../data/content.json'
 
 const { quests } = content
@@ -11,7 +12,7 @@ const STATUS_BASE = 'inline-block font-pixel text-[0.56rem] px-[0.8em] py-[0.4em
 
 export default function QuestLog() {
   return (
-    <Level id="experience" className="bg-lvl-quests" walkerSrc="/characters/3.png">
+    <Level id="experience" className="bg-lvl-quests" walkerSrc={asset('characters/3.png')}>
       <SectionHead eyebrow={eyebrow} title={title} />
 
       <div className="flex flex-col gap-[1.3rem]">

@@ -2,6 +2,7 @@ import Level from './Level'
 import LevelNav from './LevelNav'
 import SectionHead from './SectionHead'
 import { CARD, HEADING } from '../styles'
+import { asset } from '../utils/asset'
 import content from '../data/content.json'
 
 const { eyebrow, title, story, care } = content.about
@@ -11,7 +12,7 @@ const P = 'text-white/90 mb-[1em]'
 
 export default function About() {
   return (
-    <Level id="profile" className="bg-lvl-about" walkerSrc="/characters/1.png">
+    <Level id="profile" className="bg-lvl-about" walkerSrc={asset('characters/1.png')}>
       <SectionHead eyebrow={eyebrow} title={title} />
 
       <div className="grid gap-[1.6rem] grid-cols-1 min-[760px]:grid-cols-2">

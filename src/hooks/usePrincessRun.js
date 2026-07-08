@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import { prefersReducedMotion } from '../utils/motion'
+import { asset } from '../utils/asset'
 
-const IDLE_FRAME = '/characters/princess.png'
-const RUN_FRAMES = [IDLE_FRAME, '/characters/princess-run.png']
+const IDLE_FRAME = asset('characters/princess.png')
+const RUN_FRAMES = [IDLE_FRAME, asset('characters/princess-run.png')]
 const FRAME_INTERVAL = 140 // matches the hero's run-cycle timing
 const RUN_DURATION = 1100 // matches the slide-in/out transition length
 

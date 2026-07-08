@@ -2,6 +2,7 @@ import Level from './Level'
 import LevelNav from './LevelNav'
 import GatedLink from './GatedLink'
 import { getMailtoHref, getWhatsAppHref } from '../utils/contact'
+import { asset } from '../utils/asset'
 import { CARD, EYEBROW, HEADING, BTN_BASE } from '../styles'
 import content from '../data/content.json'
 
@@ -11,7 +12,7 @@ const socialLinks = content.social.filter(({ href }) => href)
 
 export default function Contact() {
   return (
-    <Level id="contact" className="bg-lvl-contact text-center" contentClassName="flex flex-col items-center justify-center" walkerSrc="/characters/2.png">
+    <Level id="contact" className="bg-lvl-contact text-center" contentClassName="flex flex-col items-center justify-center" walkerSrc={asset('characters/2.png')}>
       <div className={`${CARD} reveal max-w-[44em]`}>
         <p className={EYEBROW}>{eyebrow}</p>
         <h2 className={`${HEADING} text-[clamp(1.4rem,4vw,2.1rem)] leading-[1.5]`}>{title}</h2>

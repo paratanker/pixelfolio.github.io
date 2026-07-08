@@ -2,6 +2,7 @@ import Level from './Level'
 import LevelNav from './LevelNav'
 import SectionHead from './SectionHead'
 import { CARD, CHIP_BASE, GROUP_LABEL } from '../styles'
+import { asset } from '../utils/asset'
 import content from '../data/content.json'
 
 const { skillGroups } = content
@@ -11,7 +12,7 @@ const CHIP = `${CHIP_BASE} border-white/35 text-white bg-black/18 text-[0.82rem]
 
 export default function SkillTree() {
   return (
-    <Level id="skills" className="bg-lvl-skills" walkerSrc="/characters/7.png">
+    <Level id="skills" className="bg-lvl-skills" walkerSrc={asset('characters/7.png')}>
       <SectionHead eyebrow={eyebrow} title={title} />
 
       <div className="grid gap-[1.3rem] grid-cols-1 min-[700px]:grid-cols-2">

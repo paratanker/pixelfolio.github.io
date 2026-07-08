@@ -58,7 +58,7 @@ Also update:
 
 | Key | Icon | What it controls |
 | --- | :---: | --- |
-| `site` | 🏷️ | browser tab title, meta description, brand name, footer copyright |
+| `site` | 🏷️ | browser tab title, meta description, brand name, footer copyright, deploy base path (`baseUrl`) |
 | `nav` | 🧭 | header nav links |
 | `social` | 🔗 | LinkedIn/GitHub URLs |
 | `contact` | 📬 | base64-encoded email/phone (`emailB64`, `phoneB64`) and the WhatsApp prefill message — encode your own with `echo -n "value" \| base64` |
@@ -111,7 +111,7 @@ Or via CLI: `npx netlify deploy --prod --dir=dist`
 <details>
 <summary><b>🐙 GitHub Pages</b></summary>
 
-1. `vite.config.js` already uses `base: './'` (relative paths), so the build works whether it's served from a subpath (`<user>.github.io/<repo>/`) or a custom domain — no changes needed here.
+1. `site.baseUrl` in `content.json` defaults to `./` (relative paths), so the build works whether it's served from a subpath (`<user>.github.io/<repo>/`) or a custom domain — no changes needed here. Only set it to something like `/<repo>/` if you specifically need absolute asset paths.
 2. Add a workflow at `.github/workflows/deploy.yml`:
 
    ```yaml

@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
+import { asset } from '../utils/asset'
 
 const SPEED = 260 // px per second
 export const SPRITE_WIDTH = 68
-const IDLE_FRAME = '/characters/5.png'
-const WALK_FRAMES = ['/characters/1.png', '/characters/4.png']
+const IDLE_FRAME = asset('characters/5.png')
+export const WALK_FRAMES = [asset('characters/1.png'), asset('characters/4.png')]
 const FRAME_INTERVAL = 140 // ms
 
 const PRINCESS_WIDTH = 64

@@ -2,6 +2,7 @@ import Level from './Level'
 import LevelNav from './LevelNav'
 import SectionHead from './SectionHead'
 import { CARD, GROUP_LABEL } from '../styles'
+import { asset } from '../utils/asset'
 import content from '../data/content.json'
 
 const { missionGroups } = content
@@ -11,7 +12,7 @@ const PROJ_NAME = 'proj-name font-semibold text-white block no-underline hover:t
 
 export default function Missions() {
   return (
-    <Level id="projects" className="bg-lvl-missions" walkerSrc="/characters/6.png">
+    <Level id="projects" className="bg-lvl-missions" walkerSrc={asset('characters/6.png')}>
       <SectionHead eyebrow={eyebrow} title={title} />
 
       <div className="flex flex-col gap-[1.8rem]">

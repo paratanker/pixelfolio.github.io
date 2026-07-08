@@ -2,6 +2,7 @@ import Level from './Level'
 import LevelNav from './LevelNav'
 import SectionHead from './SectionHead'
 import { CARD, EYEBROW } from '../styles'
+import { asset } from '../utils/asset'
 import content from '../data/content.json'
 
 const { eyebrow, title, education, languages, trophies } = content.credentials
@@ -22,7 +23,7 @@ function CredList({ label, items, trophy = false }) {
 
 export default function Trophies() {
   return (
-    <Level id="credentials" className="bg-lvl-trophy" walkerSrc="/characters/9.png">
+    <Level id="credentials" className="bg-lvl-trophy" walkerSrc={asset('characters/9.png')}>
       <SectionHead eyebrow={eyebrow} title={title} />
 
       <div className="grid gap-[1.4rem] grid-cols-1 min-[800px]:grid-cols-3">

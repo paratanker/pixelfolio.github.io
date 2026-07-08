@@ -4,9 +4,9 @@ import LevelNav from './LevelNav'
 import { useRunCycle } from '../hooks/useRunCycle'
 import { useCountUp } from '../hooks/useCountUp'
 import { EYEBROW, HEADING, BTN_BASE, CHIP_BASE } from '../styles'
+import { WALK_FRAMES as RUN_FRAMES } from '../hooks/useCharacterControls'
+import { asset } from '../utils/asset'
 import content from '../data/content.json'
-
-const RUN_FRAMES = ['/characters/1.png', '/characters/4.png']
 
 const { eyebrow: HERO_EYEBROW, name: HERO_NAME, subtitle: HERO_SUBTITLE, description: HERO_DESCRIPTION, location: HERO_LOCATION, stack: STACK } = content.hero
 
@@ -28,7 +28,7 @@ const decorations = (
     <div className={`cloud ${DECO_BASE} w-[70px] h-[26px] bg-white rounded-[50px] opacity-[0.92] animate-float`} style={{ top: 95, left: '70%', animationDelay: '2s' }} aria-hidden="true" />
     <div className={`${DECO_BASE} w-[60px] h-[60px] rounded-full bg-[radial-gradient(circle_at_35%_35%,#FFE9A8,var(--color-gold))] shadow-[0_0_44px_12px_rgba(232,163,61,0.5)]`} style={{ top: 64, right: '8%' }} aria-hidden="true" />
     <picture className={`${DECO_BASE} bottom-0 left-0 pointer-events-none`}>
-      <source media="(min-width: 700px)" srcSet="/assets/castle.png" />
+      <source media="(min-width: 700px)" srcSet={asset('assets/castle.png')} />
       <img className="pixel-img w-[300px] h-auto opacity-80" alt="" aria-hidden="true" />
     </picture>
   </>
@@ -86,7 +86,7 @@ export default function Hero() {
 
         <div className="reveal relative justify-self-center w-[min(320px,78vw)] text-center mt-6" style={{ transitionDelay: '360ms' }}>
           <div className="relative rounded-[20px] border-4 border-gold overflow-hidden min-h-[380px] bg-[linear-gradient(180deg,#2E2246_0%,#150F24_100%)] flex items-end justify-center" role="img" aria-label="Pixel-art illustration of a Prince-of-Persia-style adventurer standing in a torch-lit palace archway">
-            <img className="pixel-img absolute bottom-[14px] left-1/2 -translate-x-1/2 w-[250px] h-[340px] object-contain" src="/assets/dome.png" alt="" aria-hidden="true" />
+            <img className="pixel-img absolute bottom-[14px] left-1/2 -translate-x-1/2 w-[250px] h-[340px] object-contain" src={asset('assets/dome.png')} alt="" aria-hidden="true" />
             <div className="torch bottom-[112px] left-[28px]" aria-hidden="true" />
             <div className="torch bottom-[112px] right-[28px]" aria-hidden="true" />
             <HeroSprite />
