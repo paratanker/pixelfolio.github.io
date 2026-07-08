@@ -1,7 +1,7 @@
 {
   "site": {
     "brand": "YOUR NAME",
-    "footerCopyright": "© 2026 Your Name"
+    "footerCopyright": "Your Name"
   },
   "nav": [
     { "href": "#top", "label": "Stats" },

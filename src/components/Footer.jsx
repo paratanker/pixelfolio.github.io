@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#161d38] pt-8 pb-24 font-mono text-[0.74rem] text-white/65">
       <div className="max-w-[1180px] mx-auto px-[clamp(1.25rem,4vw,3rem)] w-full flex flex-wrap gap-4 justify-between items-center">
-        <span>{footerCopyright}</span>
+        <span>© {new Date().getFullYear()} {footerCopyright}</span>
         <div className="flex gap-[1.4rem] flex-wrap">
           <GatedLink className="no-underline text-white/85 hover:text-gold" href={getWhatsAppHref(resumeMessage)} target="_blank" rel="noopener">WhatsApp</GatedLink>
           <GatedLink className="no-underline text-white/85 hover:text-gold" href={getMailtoHref()}>Email</GatedLink>
