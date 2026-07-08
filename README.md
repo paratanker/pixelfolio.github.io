@@ -111,7 +111,7 @@ Or via CLI: `npx netlify deploy --prod --dir=dist`
 <details>
 <summary><b>🐙 GitHub Pages</b></summary>
 
-1. In `vite.config.js`, set `base: '/<your-repo-name>/'` (skip this if deploying to a custom domain or a `<user>.github.io` repo).
+1. `vite.config.js` already uses `base: './'` (relative paths), so the build works whether it's served from a subpath (`<user>.github.io/<repo>/`) or a custom domain — no changes needed here.
 2. Add a workflow at `.github/workflows/deploy.yml`:
 
    ```yaml
