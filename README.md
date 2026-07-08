@@ -9,7 +9,7 @@
 
 A pixel/RPG-themed portfolio template. Your career shown as a quest log 📜, your projects as cleared missions 🗺️, your skills as a skill tree 🌳.
 
-🔗 **[Live Demo](https://paratanker.github.io/pixelfolio/)**
+🔗 **<a href="https://paratanker.github.io/pixelfolio/" target="_blank" rel="noopener noreferrer">Live Demo</a>**
 
 ---
 
