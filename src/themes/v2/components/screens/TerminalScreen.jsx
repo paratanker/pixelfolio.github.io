@@ -131,10 +131,10 @@ export default function TerminalScreen() {
           </button>
         ))}
       </div>
-      <div ref={scrollRef} className="flex-1 overflow-y-auto">
+      <div ref={scrollRef} className="flex-1 overflow-y-auto scrollbar-hide">
         {history.map((line, i) =>
           line.block ? (
-            <Typewriter key={i} as="pre" text={line.text} speed={4} className="whitespace-pre overflow-x-auto text-center" />
+            <Typewriter key={i} as="pre" text={line.text} speed={4} className="whitespace-pre overflow-x-auto scrollbar-hide text-center" />
           ) : line.isPrompt ? (
             <p key={i} className="text-gold">{line.text}</p>
           ) : (

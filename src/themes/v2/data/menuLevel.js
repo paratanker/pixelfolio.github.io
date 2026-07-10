@@ -9,6 +9,11 @@ export const GRAVITY = 1850 // px/s^2
 export const JUMP_VELOCITY = 680 // px/s, upward
 export const MOVE_SPEED = 280 // px/s
 export const SPRITE_WIDTH = 68
+// The character PNGs are mostly transparent margin — at the rendered 68px width
+// the visible body spans only ~px 23–46 when idle. Support/landing checks inset
+// the sprite box by this much per side so the hero can't stand on a platform
+// with nothing but invisible margin overlapping it (visibly floating in air).
+export const HITBOX_INSET = 22
 
 const BEDROCK_Y = 0
 const GROUND_Y = 100

@@ -149,7 +149,19 @@ export default function PlatformLevel({ activeScreen, onOpen, onClose, visited, 
                   aria-label={item.label}
                 >
                   <span>{item.label}</span>
-                  {visited.has(p.key) && <span className="level-platform__btn--visited" aria-hidden="true">✓</span>}
+                  {visited.has(p.key) && (
+                    // Pixel-art check drawn on a 7×6 grid, one <rect> per row run.
+                    <svg className="level-platform__check" viewBox="0 0 7 6" aria-hidden="true">
+                      <rect x="6" y="0" width="1" height="1" />
+                      <rect x="5" y="1" width="2" height="1" />
+                      <rect x="0" y="2" width="1" height="1" />
+                      <rect x="4" y="2" width="2" height="1" />
+                      <rect x="0" y="3" width="2" height="1" />
+                      <rect x="3" y="3" width="2" height="1" />
+                      <rect x="1" y="4" width="3" height="1" />
+                      <rect x="2" y="5" width="1" height="1" />
+                    </svg>
+                  )}
                 </button>
               )}
             </div>
@@ -191,7 +203,7 @@ export default function PlatformLevel({ activeScreen, onOpen, onClose, visited, 
         ref={wrapRef}
         className={
           canScroll
-            ? 'absolute inset-x-0 top-[clamp(4.5rem,9vh,6rem)] bottom-0 flex items-start justify-center overflow-y-auto overflow-x-hidden overscroll-contain touch-pan-y'
+            ? 'absolute inset-x-0 top-[clamp(4.5rem,9vh,6rem)] bottom-0 flex items-start justify-center overflow-y-auto overflow-x-hidden overscroll-contain touch-pan-y scrollbar-hide'
             : `absolute inset-x-0 top-[clamp(4.5rem,9vh,6rem)] ${isTouch ? 'bottom-0' : 'bottom-[52px]'} flex items-end justify-center overflow-hidden`
         }
       >

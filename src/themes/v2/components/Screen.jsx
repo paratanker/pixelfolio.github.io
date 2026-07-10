@@ -49,7 +49,7 @@ export default function Screen({ title, eyebrow, accent = 'contact', onClose, ch
       <div
         ref={scrollRef}
         tabIndex={0}
-        className="screen-scroll relative z-[2] flex-1 overflow-y-auto px-[clamp(1.1rem,4vw,3rem)] pb-[clamp(4rem,8vh,5rem)] outline-none"
+        className="screen-scroll scrollbar-hide relative z-[2] flex-1 overflow-y-auto px-[clamp(1.1rem,4vw,3rem)] pb-[clamp(4rem,8vh,5rem)] outline-none"
       >
         {children}
       </div>

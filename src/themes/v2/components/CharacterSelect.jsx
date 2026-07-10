@@ -38,7 +38,7 @@ export default function CharacterSelect({ onSelect }) {
         {content.site.brand} · v2.0
       </p>
 
-      <div className="flex-1 flex flex-col items-center justify-center gap-[clamp(0.7rem,3vh,2.6rem)] px-[clamp(1.1rem,4vw,3rem)] py-[clamp(2.2rem,9vh,7rem)] w-full max-w-[56rem] overflow-y-auto">
+      <div className="flex-1 flex flex-col items-center justify-center gap-[clamp(0.7rem,3vh,2.6rem)] px-[clamp(1.1rem,4vw,3rem)] py-[clamp(2.2rem,9vh,7rem)] w-full max-w-[56rem] overflow-y-auto scrollbar-hide">
         <p className="font-pixel text-[0.62rem] tracking-[0.03em] text-jade text-center [text-shadow:0_2px_0_rgba(0,0,0,0.25)]">
           » CHOOSE YOUR CHARACTER «
         </p>

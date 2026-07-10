@@ -29,6 +29,16 @@ body {
   outline: none;
 }
 
+/* The game shell never shows native scrollbars — they break the pixel-art
+   frame. Every scroll region takes this class; the region stays scrollable
+   (wheel/touch/keys), so pair it with a keyboard path where possible. */
+.scrollbar-hide {
+  scrollbar-width: none;      /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;              /* Chrome/Safari */
+}
+
 /* Screen's scroll region auto-focuses on open (so arrow/Page keys can scroll
    without a click) and clips overflow, so the default ring's top edge shows
    as a stray line across the whole screen instead of a real focus outline. */
@@ -148,8 +158,18 @@ body {
     border-color: rgba(0,0,0,0.3);
     animation: platformGlow 1.1s ease-in-out infinite;
   }
-  .level-platform__btn--visited {
-    color: var(--color-jade);
+  /* An inline SVG (see PlatformLevel), not a font glyph — it centers by
+     geometry under the button's flex centering, with no font-metric fixups. */
+  .level-platform__check {
+    width: 1.17em; /* the 7×6 grid's aspect ratio at 1em tall */
+    height: 1em;
+    fill: var(--color-jade);
+    shape-rendering: crispEdges;
+    filter: drop-shadow(0 0 6px color-mix(in srgb, var(--color-jade) 90%, transparent));
+  }
+  .level-platform__btn--active .level-platform__check {
+    fill: var(--color-jade-dk);
+    filter: none;
   }
   /* ---------- Arrival note: parchment callout with a tail pointing at the button ---------- */
   .level-note {

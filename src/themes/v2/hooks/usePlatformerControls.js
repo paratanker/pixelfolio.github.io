@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { CHARACTERS } from '../data/characters'
-import { GRAVITY, JUMP_VELOCITY, LEVEL_WIDTH, MOVE_SPEED, SPRITE_WIDTH } from '../data/menuLevel'
+import { GRAVITY, HITBOX_INSET, JUMP_VELOCITY, LEVEL_WIDTH, MOVE_SPEED, SPRITE_WIDTH } from '../data/menuLevel'
 import { JUMP_KEYS, LEFT_KEYS, matchesKey, RIGHT_KEYS } from '../utils/keyboard'
 
 const FRAME_INTERVAL = 140 // ms
@@ -27,14 +27,19 @@ function fillLiveX(platforms, time, out) {
   return out
 }
 
+// The hero's foot span for collision — the sprite box inset per side to match
+// the visible body, not the transparent image margins (see HITBOX_INSET).
+function overlapsPlatform(xPos, px, platformWidth) {
+  return xPos + SPRITE_WIDTH - HITBOX_INSET > px && xPos + HITBOX_INSET < px + platformWidth
+}
+
 // The platform (if any) the hero at (xPos, yPos) is standing on, given the
 // index-aligned live x's computed this frame by fillLiveX.
 function findSupport(platforms, liveX, xPos, yPos) {
   for (let i = 0; i < platforms.length; i++) {
     const p = platforms[i]
     if (Math.abs(p.y - yPos) >= 0.01) continue
-    const px = liveX[i]
-    if (xPos + SPRITE_WIDTH > px && xPos < px + p.width) return p
+    if (overlapsPlatform(xPos, liveX[i], p.width)) return p
   }
   return null
 }
@@ -150,9 +155,7 @@ export function usePlatformerControls({ platforms, heroStart, paused, onEnterSec
             let landOn = null
             for (let i = 0; i < platformsNow.length; i++) {
               const p = platformsNow[i]
-              const px = liveX[i]
-              const withinX = xRef.current + SPRITE_WIDTH > px && xRef.current < px + p.width
-              if (!withinX) continue
+              if (!overlapsPlatform(xRef.current, liveX[i], p.width)) continue
               if (prevY >= p.y && yRef.current <= p.y && (landOn == null || p.y > landOn.y)) {
                 landOn = p
               }
