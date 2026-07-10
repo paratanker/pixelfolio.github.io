@@ -2,11 +2,11 @@ import { useMemo } from 'react'
 import Level from './Level'
 import LevelNav from './LevelNav'
 import { useRunCycle } from '../hooks/useRunCycle'
-import { useCountUp } from '../hooks/useCountUp'
+import { useCountUp } from '../../../hooks/useCountUp'
 import { EYEBROW, HEADING, BTN_BASE, CHIP_BASE } from '../styles'
 import { WALK_FRAMES as RUN_FRAMES } from '../hooks/useCharacterControls'
-import { asset } from '../utils/asset'
-import content from '../data/content.json'
+import { asset } from '../../../utils/asset'
+import content from '../../../data/content.json'
 
 const { eyebrow: HERO_EYEBROW, name: HERO_NAME, subtitle: HERO_SUBTITLE, description: HERO_DESCRIPTION, location: HERO_LOCATION, stack: STACK } = content.hero
 

@@ -2,8 +2,8 @@ import Level from './Level'
 import LevelNav from './LevelNav'
 import SectionHead from './SectionHead'
 import { CARD, HEADING } from '../styles'
-import { asset } from '../utils/asset'
-import content from '../data/content.json'
+import { asset } from '../../../utils/asset'
+import content from '../../../data/content.json'
 
 const { quests } = content
 const { eyebrow, title } = content.questLog

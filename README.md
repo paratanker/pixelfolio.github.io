@@ -11,6 +11,17 @@ A pixel/RPG-themed portfolio template. Your career shown as a quest log 📜, yo
 
 🔗 **<a href="https://paratanker.github.io/pixelfolio/" target="_blank" rel="noopener noreferrer">Live Demo</a>**
 
+## 🎨 Two Themes, One Content File
+
+Set `version` in `src/data/content.json` to pick the look — both themes render the same content:
+
+| `version` | Theme                                                                                                                          |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `"v1.0"`  | 📜 Scrolling RPG page — hero, quest log, missions, skill tree as one long scrollable world                                     |
+| `"v2.0"`  | 🕹️ Game shell — fixed-viewport game UI with character select, platformer main menu, per-section screens, and an ELIZA terminal |
+
+The themes are code-split: visitors only download the one that's active.
+
 ---
 
 ## 🕹️ Quick Start
@@ -39,14 +50,19 @@ npm run lint        # 🧹 run oxlint
 
 ```
 src/
-  data/content.json   # 📝 all site copy/content (see below)
-  components/         # 🧩 React components (Hero, About, QuestLog, Missions, SkillTree, Trophies, Contact, ...)
-  hooks/               # 🎣 animation/scroll/character-control hooks
-  App.jsx, main.jsx, index.css
+  data/content.json   # 📝 all site copy/content + theme version (see below)
+  hooks/, utils/      # 🎣 shared hooks and helpers used by both themes
+  themes/
+    v1/               # 📜 scrolling RPG page (Hero, About, QuestLog, Missions, SkillTree, Trophies, ...)
+    v2/               # 🕹️ game shell (GameShell, CharacterSelect, PlatformLevel, screens/, ELIZA terminal, ...)
+  App.jsx             # 🔀 loads the theme selected by content.json's "version"
+  main.jsx, index.css
 public/
   characters/          # 👾 sprite images used by the character animation
   assets/              # 🖼️ other static assets
 ```
+
+Each theme folder is self-contained (`App.jsx`, `theme.css`, `styles.js`, `components/`, `hooks/`); shared design tokens live in `src/index.css`, and each `theme.css` overrides them for its look.
 
 ## ✍️ Putting in Your Content
 
@@ -58,19 +74,23 @@ Also update:
 
 ### 📋 Sections in `content.json`
 
-| Key | Icon | What it controls |
-| --- | :---: | --- |
-| `site` | 🏷️ | browser tab title, meta description, brand name, footer copyright, deploy base path (`baseUrl`) |
-| `nav` | 🧭 | header nav links |
-| `social` | 🔗 | LinkedIn/GitHub URLs |
-| `contact` | 📬 | base64-encoded email/phone (`emailB64`, `phoneB64`) and the WhatsApp prefill message — encode your own with `echo -n "value" \| base64` |
-| `hero` | 🦸 | landing section: eyebrow, name, subtitle, description, stats, tech stack chips, location |
-| `about` | 💬 | "About Me" section copy (story + what I care about) |
-| `questLog` / `quests` | 📜 | work experience timeline (each entry: `status` of `active` or `complete`, title, employer, duration, objectives) |
-| `missions` / `missionGroups` | 🎯 | projects shipped, grouped by company (each project supports `name`, `org`, optional `href`, optional `screenshot`) |
-| `skills` / `skillGroups` | 🌳 | skill tree, grouped into labeled chip lists |
-| `credentials` | 🏆 | education, languages, trophies/achievements |
-| `contactSection` | ✉️ | closing CTA copy |
+| Key                          | Icon | What it controls                                                                                                                        |
+| ---------------------------- | :--: | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `version`                    |  🎨  | active theme: `"v1.0"` (scrolling page) or `"v2.0"` (game shell)                                                                        |
+| `site`                       |  🏷️  | browser tab title, meta description, brand name, footer copyright, deploy base path (`baseUrl`)                                         |
+| `nav`                        |  🧭  | header nav links (v1 theme)                                                                                                             |
+| `hud`                        |  ❤️  | HP/level readout in the game HUD (v2 theme)                                                                                             |
+| `menu`                       |  🕹️  | game-shell screen list and labels (v2 theme)                                                                                            |
+| `social`                     |  🔗  | LinkedIn/GitHub URLs                                                                                                                    |
+| `contact`                    |  📬  | base64-encoded email/phone (`emailB64`, `phoneB64`) and the WhatsApp prefill message — encode your own with `echo -n "value" \| base64` |
+| `hero`                       |  🦸  | landing section: eyebrow, name, subtitle, description, stats, tech stack chips, location                                                |
+| `about`                      |  💬  | "About Me" section copy (story + what I care about)                                                                                     |
+| `questLog` / `quests`        |  📜  | work experience timeline (each entry: `status` of `active` or `complete`, title, employer, duration, objectives)                        |
+| `missions` / `missionGroups` |  🎯  | projects shipped, grouped by company (each project supports `name`, `org`, optional `href`, optional `screenshot`)                      |
+| `skills` / `skillGroups`     |  🌳  | skill tree, grouped into labeled chip lists                                                                                             |
+| `credentials`                |  🏆  | education, languages, trophies/achievements                                                                                             |
+| `terminal`                   |  💻  | ELIZA terminal screen heading (v2 theme)                                                                                                |
+| `contactSection`             |  ✉️  | closing CTA copy                                                                                                                        |
 
 > 💡 The `{{missionsShipped}}` token in `hero.stats` is a placeholder substituted at render time with the total project count across `missionGroups` (see `Hero.jsx`) — leave the token in place, don't hardcode a number.
 

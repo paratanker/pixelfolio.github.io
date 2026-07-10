@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { prefersReducedMotion } from '../utils/motion'
+import { prefersReducedMotion } from '../../../utils/motion'
 
 const STEP_MS = 60
 const MAX_STEPS = 6

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { asset } from '../utils/asset'
+import { asset } from '../../../utils/asset'
 
 const SPEED = 260 // px per second
 export const SPRITE_WIDTH = 68

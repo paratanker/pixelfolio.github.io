@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,9 +10,11 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Cinzel:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Union of both themes' fonts: v1 body/mono = Inter/JetBrains Mono, v2 body/mono = Geist Pixel/VT323 -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Cinzel:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Geist+Pixel&family=VT323&display=swap" rel="stylesheet">
   </head>
-  <body class="m-0 bg-lvl-contact text-white font-body text-base leading-[1.65] antialiased">
+  <!-- Theme-neutral shell: scroll behavior and type scale live in each theme's theme.css -->
+  <body class="m-0 bg-lvl-contact text-white font-body antialiased">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

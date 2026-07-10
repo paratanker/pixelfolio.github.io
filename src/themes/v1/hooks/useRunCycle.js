@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { prefersReducedMotion } from '../utils/motion'
+import { prefersReducedMotion } from '../../../utils/motion'
 
 export function useRunCycle(frames, intervalMs = 220) {
   const [index, setIndex] = useState(0)

@@ -2,8 +2,8 @@ import Level from './Level'
 import LevelNav from './LevelNav'
 import SectionHead from './SectionHead'
 import { CARD, EYEBROW } from '../styles'
-import { asset } from '../utils/asset'
-import content from '../data/content.json'
+import { asset } from '../../../utils/asset'
+import content from '../../../data/content.json'
 
 const { eyebrow, title, education, languages, trophies } = content.credentials
 

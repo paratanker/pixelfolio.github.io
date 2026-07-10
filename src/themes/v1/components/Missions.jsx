@@ -2,8 +2,8 @@ import Level from './Level'
 import LevelNav from './LevelNav'
 import SectionHead from './SectionHead'
 import { CARD, GROUP_LABEL } from '../styles'
-import { asset } from '../utils/asset'
-import content from '../data/content.json'
+import { asset } from '../../../utils/asset'
+import content from '../../../data/content.json'
 
 const { missionGroups } = content
 const { eyebrow, title, disclaimer } = content.missions

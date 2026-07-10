@@ -1,4 +1,5 @@
 {
+  "version": "v2.0",
   "site": {
     "baseUrl": "./",
     "title": "YOUR NAME — RPG-Themed Developer Portfolio",
@@ -6,20 +7,88 @@
     "brand": "YOUR NAME",
     "footerCopyright": "Your Name"
   },
+  "hud": {
+    "hp": 100,
+    "hpMax": 100,
+    "level": 15
+  },
+  "menu": [
+    {
+      "key": "profile",
+      "label": "PROFILE"
+    },
+    {
+      "key": "experience",
+      "label": "EXPERIENCE"
+    },
+    {
+      "key": "projects",
+      "label": "PROJECTS"
+    },
+    {
+      "key": "skills",
+      "label": "SKILLS"
+    },
+    {
+      "key": "education",
+      "label": "EDUCATION"
+    },
+    {
+      "key": "terminal",
+      "label": "ELIZA"
+    },
+    {
+      "key": "contact",
+      "label": "CONTACT"
+    }
+  ],
   "nav": [
-    { "href": "#top", "label": "Stats" },
-    { "href": "#profile", "label": "About" },
-    { "href": "#experience", "label": "Quests" },
-    { "href": "#projects", "label": "Missions" },
-    { "href": "#skills", "label": "Skills" },
-    { "href": "#credentials", "label": "Trophies" },
-    { "href": "#contact", "label": "Contact" }
+    {
+      "href": "#top",
+      "label": "Stats"
+    },
+    {
+      "href": "#profile",
+      "label": "About"
+    },
+    {
+      "href": "#experience",
+      "label": "Quests"
+    },
+    {
+      "href": "#projects",
+      "label": "Missions"
+    },
+    {
+      "href": "#skills",
+      "label": "Skills"
+    },
+    {
+      "href": "#credentials",
+      "label": "Trophies"
+    },
+    {
+      "href": "#contact",
+      "label": "Contact"
+    }
   ],
   "social": [
-    { "label": "LinkedIn", "href": "https://linkedin.com/in/your-handle" },
-    { "label": "GitHub", "href": "https://github.com/your-handle" },
-    { "label": "Facebook", "href": "https://facebook.com/your-handle" },
-    { "label": "Instagram", "href": "https://instagram.com/your-handle" }
+    {
+      "label": "LinkedIn",
+      "href": "https://linkedin.com/in/your-handle"
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com/your-handle"
+    },
+    {
+      "label": "Facebook",
+      "href": "https://facebook.com/your-handle"
+    },
+    {
+      "label": "Instagram",
+      "href": "https://instagram.com/your-handle"
+    }
   ],
   "contact": {
     "emailB64": "eW91QGV4YW1wbGUuY29t",
@@ -32,15 +101,36 @@
     "subtitle": "Your Role · One-line pitch about what you do",
     "description": "A couple of sentences summarizing your experience and what kind of work you're looking for.",
     "stats": [
-      { "value": "5+", "label": "YEARS EXPERIENCE" },
-      { "value": "{{missionsShipped}}+", "label": "PROJECTS SHIPPED" },
-      { "value": "3", "label": "INDUSTRIES SERVED" }
+      {
+        "value": "5+",
+        "label": "YEARS EXPERIENCE"
+      },
+      {
+        "value": "{{missionsShipped}}+",
+        "label": "PROJECTS SHIPPED"
+      },
+      {
+        "value": "3",
+        "label": "INDUSTRIES SERVED"
+      }
     ],
     "stack": [
-      { "label": "React", "accent": true },
-      { "label": "Node.js", "accent": true },
-      { "label": "PostgreSQL", "accent": true },
-      { "label": "AWS", "accent": true }
+      {
+        "label": "React",
+        "accent": true
+      },
+      {
+        "label": "Node.js",
+        "accent": true
+      },
+      {
+        "label": "PostgreSQL",
+        "accent": true
+      },
+      {
+        "label": "AWS",
+        "accent": true
+      }
     ],
     "location": "YOUR CITY, COUNTRY"
   },
@@ -119,7 +209,10 @@
     {
       "name": "Previous Company",
       "projects": [
-        { "name": "Project Name", "org": "One-line description" },
+        {
+          "name": "Project Name",
+          "org": "One-line description"
+        },
         {
           "name": "Project Name",
           "org": "One-line description",
@@ -158,7 +251,10 @@
       "label": "TOOLS & OTHERS",
       "chips": ["Git", "Linux", "Jira", "Figma"]
     },
-    { "label": "METHODOLOGIES", "chips": ["Agile / Scrum", "Kanban"] }
+    {
+      "label": "METHODOLOGIES",
+      "chips": ["Agile / Scrum", "Kanban"]
+    }
   ],
   "credentials": {
     "eyebrow": "Trophy Case",
@@ -170,8 +266,14 @@
       }
     ],
     "languages": [
-      { "title": "English", "meta": "Native" },
-      { "title": "Another Language", "meta": "Conversational" }
+      {
+        "title": "English",
+        "meta": "Native"
+      },
+      {
+        "title": "Another Language",
+        "meta": "Conversational"
+      }
     ],
     "trophies": [
       {
@@ -179,6 +281,10 @@
         "meta": "20XX · Issuing Organization"
       }
     ]
+  },
+  "terminal": {
+    "eyebrow": "System Shell",
+    "title": "A mock therapist, wired into a working command line."
   },
   "contactSection": {
     "eyebrow": "Continue?",

@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Tokens for BOTH themes live here so Tailwind generates utilities for each.
+   Where the themes disagree (--color-red/torch, --font-body/mono) the v1 value
+   is the default; themes/v2/theme.css overrides them at :root when it loads. */
 @theme {
   --color-lvl-hero:    #9C7C46;
   --color-lvl-about:   #5C5240;
@@ -8,6 +11,19 @@
   --color-lvl-skills:  #2F3B47;
   --color-lvl-trophy:  #5C2A1E;
   --color-lvl-contact: #14102A;
+
+  /* v2 game palette */
+  --color-dungeon:     #1B1330;
+  --color-dungeon-dk:  #0F0A1F;
+  --color-stone:       #C9A468;
+  --color-stone-dk:    #9C7C46;
+  --color-basalt:      #4A4353;
+  --color-basalt-dk:   #2E2A38;
+  --color-marble:      #D8CFC0;
+  --color-marble-dk:   #A79C8A;
+  --color-jade:        #2FA37A;
+  --color-jade-dk:     #1F7A5C;
+  --color-parchment:   #F1E4C3;
 
   --color-red:    #B33A2E;
   --color-red-dk: #8A2C22;
@@ -21,14 +37,24 @@
   --font-display:'Cinzel', 'Georgia', serif;
   --font-body:   'Inter', -apple-system, 'Segoe UI', sans-serif;
   --font-mono:   'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-vt:     'VT323', 'Courier New', monospace;
 
   --animate-flicker:       flicker 1.6s ease-in-out infinite;
   --animate-float:         float 7s ease-in-out infinite;
   --animate-pulse-tag:     pulseTag 2.2s ease-in-out infinite;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
+/* Per-section accent colors restated as plain custom properties: v2's Screen.jsx
+   reads them via var(--color-lvl-*) at runtime, so Tailwind's utility-usage
+   tree-shaking must never drop them, even with no literal bg-lvl-* class left. */
+:root {
+  --color-lvl-hero:    #9C7C46;
+  --color-lvl-about:   #5C5240;
+  --color-lvl-quests:  #241934;
+  --color-lvl-missions:#3B2313;
+  --color-lvl-skills:  #2F3B47;
+  --color-lvl-trophy:  #5C2A1E;
+  --color-lvl-contact: #14102A;
 }
 
 :focus-visible {
@@ -38,22 +64,6 @@
 }
 
 @layer components {
-  /* ---------- Reveal-on-scroll (class toggled directly via classList in JS) ---------- */
-  .reveal { opacity: 0; transform: translateY(18px) scale(0.985); transition: opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1); }
-  .reveal.is-visible { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
-  }
-
-  /* ---------- Achievement pop (trophy unlock: overshoot ease) ---------- */
-  .reveal--pop { transition: opacity .5s ease, transform .6s cubic-bezier(.34,1.56,.64,1); }
-
-  /* ---------- Next-level nudge (invites the player to keep scrolling) ---------- */
-  .nav-arrow--next { animation: navBounce 2.2s ease-in-out infinite; }
-  @media (prefers-reduced-motion: reduce) {
-    .nav-arrow--next { animation: none; }
-  }
-
   /* ---------- Pixel-art sprites (dual image-rendering for browser fallback) ---------- */
   .pixel-img {
     image-rendering: pixelated;
@@ -67,12 +77,6 @@
   }
 
   /* ---------- Decorative "pixel ground" textures ---------- */
-  .level__ground {
-    background: rgba(0,0,0,0.28);
-    background-image:
-      repeating-linear-gradient(90deg, rgba(0,0,0,0.3) 0 2px, transparent 2px 42px),
-      repeating-linear-gradient(rgba(0,0,0,0.25) 0 2px, transparent 2px 16px);
-  }
   .hero__scene-ground {
     background: rgba(0,0,0,0.35);
     background-image: repeating-linear-gradient(90deg, rgba(0,0,0,0.3) 0 2px, transparent 2px 38px);
@@ -85,20 +89,6 @@
   /* ---------- Hourglass HUD (clip-path shapes) ---------- */
   .hg-bulb--top { clip-path: polygon(0 0, 100% 0, 50% 100%); }
   .hg-bulb--bottom { clip-path: polygon(50% 0, 100% 100%, 0 100%); }
-
-  /* ---------- Torch (box + pseudo-element flame) ---------- */
-  .torch {
-    position: absolute; width: 8px; height: 26px;
-    background: #2c2013; border-radius: 2px 2px 0 0;
-  }
-  .torch::before {
-    content: '';
-    position: absolute; top: -20px; left: 50%; transform: translateX(-50%);
-    width: 15px; height: 22px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-    background: radial-gradient(circle at 50% 68%, #FFE29A 0%, var(--color-torch) 45%, var(--color-torch-dk) 80%, transparent 100%);
-    box-shadow: 0 0 16px 6px rgba(242,169,60,0.4);
-    animation: var(--animate-flicker);
-  }
 
   /* ---------- Cloud (pseudo-element puffs) ---------- */
   .cloud::before {
@@ -129,8 +119,4 @@
 @keyframes pulseTag {
   0%,100%{ opacity: 1; }
   50%{ opacity: 0.6; }
-}
-@keyframes navBounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(4px); }
 }

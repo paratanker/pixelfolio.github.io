@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import content from '../data/content.json'
+import content from '../../../data/content.json'
 
 const { brand } = content.site
 const NAV_LINKS = content.nav

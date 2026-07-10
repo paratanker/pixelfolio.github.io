@@ -1,10 +1,10 @@
 import Level from './Level'
 import LevelNav from './LevelNav'
 import GatedLink from './GatedLink'
-import { getMailtoHref, getWhatsAppHref } from '../utils/contact'
-import { asset } from '../utils/asset'
+import { getMailtoHref, getWhatsAppHref } from '../../../utils/contact'
+import { asset } from '../../../utils/asset'
 import { CARD, EYEBROW, HEADING, BTN_BASE } from '../styles'
-import content from '../data/content.json'
+import content from '../../../data/content.json'
 
 const { eyebrow, title, description, footerNote } = content.contactSection
 const { resumeMessage } = content.contact

@@ -1,6 +1,6 @@
 import GatedLink from './GatedLink'
-import { getMailtoHref, getWhatsAppHref } from '../utils/contact'
-import content from '../data/content.json'
+import { getMailtoHref, getWhatsAppHref } from '../../../utils/contact'
+import content from '../../../data/content.json'
 
 const { footerCopyright } = content.site
 const { resumeMessage } = content.contact

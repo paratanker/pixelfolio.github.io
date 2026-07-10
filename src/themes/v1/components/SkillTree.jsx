@@ -2,8 +2,8 @@ import Level from './Level'
 import LevelNav from './LevelNav'
 import SectionHead from './SectionHead'
 import { CARD, CHIP_BASE, GROUP_LABEL } from '../styles'
-import { asset } from '../utils/asset'
-import content from '../data/content.json'
+import { asset } from '../../../utils/asset'
+import content from '../../../data/content.json'
 
 const { skillGroups } = content
 const { eyebrow, title } = content.skills
