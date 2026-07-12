@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { CHARACTER_LIST } from '../data/characters'
 import { asset } from '../../../utils/asset'
 import { useFocusTrap } from '../hooks/useFocusTrap'
+import { BTN_GHOST } from '../styles'
 import { CONFIRM_KEYS, cycleIndex, LEFT_KEYS, matchesKey, RIGHT_KEYS } from '../utils/keyboard'
 import { isAudioUnlocked, isMuted, playSfx, startMusic, toggleMuted } from '../utils/sound'
 import content from '../../../data/content.json'
@@ -122,7 +123,7 @@ export default function CharacterSelect({ onSelect }) {
                 onClick={continueMuted}
                 onMouseEnter={() => setGateFocusIndex(1)}
                 onFocus={() => setGateFocusIndex(1)}
-                className="flex-1 font-pixel text-[0.62rem] tracking-[0.02em] text-parchment/80 bg-black/35 border-2 border-parchment/25 rounded-[8px] px-[1.2em] py-[0.85em] transition-colors hover:bg-black/55 hover:text-parchment"
+                className={`flex-1 ${BTN_GHOST} text-[0.62rem] px-[1.2em] py-[0.85em]`}
               >
                 Mute
               </button>

@@ -8,6 +8,7 @@ import CharacterSelect from './CharacterSelect'
 import Hud from './Hud'
 import MainMenu from './MainMenu'
 import PlatformLevel from './PlatformLevel'
+import RotateDevice from './RotateDevice'
 import Screen from './Screen'
 import ControlHints from './ControlHints'
 import ProfileScreen from './screens/ProfileScreen'
@@ -25,7 +26,7 @@ const DESKTOP_QUERY = '(min-width: 860px) and (pointer: fine)'
 // Below the desktop breakpoint, a touch device held sideways still has enough
 // width to run the platformer (it's the level's own scale-to-fit that keeps
 // jump distances/tap targets usable) — only true portrait phones fall back to
-// the flat MainMenu list.
+// the rotate-device prompt (see isTouchPortrait below).
 const TOUCH_LANDSCAPE_QUERY = '(any-pointer: coarse) and (orientation: landscape)'
 
 const SCREENS = {
@@ -46,6 +47,14 @@ export default function GameShell() {
   const isDesktop = useMediaQuery(DESKTOP_QUERY)
   const isTouchLandscape = useMediaQuery(TOUCH_LANDSCAPE_QUERY)
   const isTouch = useIsTouchDevice()
+  // The platformer is laid out for landscape, so a touchscreen held upright
+  // gets a rotate prompt instead — with a "proceed anyway" escape hatch, since
+  // showPlatformer is false in portrait either way and the flat MainMenu below
+  // is still usable there. Both isTouch and isTouchLandscape already key off
+  // the same any-pointer:coarse query, so portrait is just "coarse pointer,
+  // not landscape" rather than a third matchMedia subscription.
+  const isTouchPortrait = isTouch && !isTouchLandscape
+  const [portraitOverride, setPortraitOverride] = useState(false)
   const showPlatformer = isDesktop || isTouchLandscape
   // isDesktop now requires a fine pointer, so any touch device in landscape
   // (including wide phones) gets the level scaled up + made scrollable — see
@@ -97,6 +106,12 @@ export default function GameShell() {
     return () => window.removeEventListener('keydown', onKeyDown)
   }, [characterKey, activeScreen, changeCharacter])
 
+  // Reset the override on leaving portrait, so rotating away and back shows
+  // the prompt fresh instead of remembering a stale "proceed anyway".
+  useEffect(() => {
+    if (!isTouchPortrait) setPortraitOverride(false)
+  }, [isTouchPortrait])
+
   useMenuNavigation({
     menu,
     activeScreen,
@@ -106,6 +121,10 @@ export default function GameShell() {
     closeScreen,
     disabled: showPlatformer || !characterKey,
   })
+
+  if (isTouchPortrait && !portraitOverride) {
+    return <RotateDevice onProceed={() => setPortraitOverride(true)} />
+  }
 
   if (!characterKey) {
     return (

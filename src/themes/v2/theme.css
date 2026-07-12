@@ -8,6 +8,11 @@
 
   --font-body:   'Geist Pixel', 'Courier New', monospace;
   --font-mono:   'VT323', 'Courier New', monospace;
+
+  /* Hud is fixed/absolute and can wrap onto up to 3 rows below the sm
+     breakpoint (narrow phone portrait), topping out around 8rem tall — this
+     is how far below-sm content must sit to never land under it. */
+  --hud-clear: 8.75rem;
 }
 
 /* ---------- Fixed, no-scroll game shell (screens scroll internally instead) ---------- */
@@ -266,6 +271,11 @@ body {
     .ember { display: none; }
   }
 
+  /* ---------- Rotate-device prompt: phone glyph tilts portrait -> landscape ---------- */
+  .rotate-hint {
+    animation: deviceRotate 1.8s ease-in-out infinite;
+  }
+
   /* ---------- Typewriter caret ---------- */
   .typewriter-caret {
     display: inline-block;
@@ -300,6 +310,11 @@ body {
 @keyframes caretBlink {
   0%,50% { opacity: 1; }
   50.01%,100% { opacity: 0; }
+}
+@keyframes deviceRotate {
+  0%, 20% { transform: rotate(0deg); }
+  50%, 80% { transform: rotate(-90deg); }
+  100% { transform: rotate(0deg); }
 }
 @keyframes emberRise {
   0% { transform: translate(0, 0); opacity: 0; }

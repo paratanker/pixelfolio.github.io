@@ -22,3 +22,7 @@ export const GROUP_LABEL = 'font-pixel text-[0.56rem] text-gold mb-[0.9rem] lead
 export const BTN_SHAPE = 'font-pixel tracking-[0.02em] rounded-[8px] border-[3px] border-black/20 shadow-[0_5px_0_rgba(0,0,0,0.28)] transition-[transform,box-shadow] duration-[120ms] ease hover:shadow-[0_2px_0_rgba(0,0,0,0.28)]'
 
 export const BTN_BASE = `inline-flex items-center gap-[0.5em] ${BTN_SHAPE} text-[0.62rem] no-underline px-[1.7em] py-[1em] hover:translate-y-[3px]`
+
+// Secondary/dismiss action on a gate prompt (CharacterSelect's audio gate,
+// RotateDevice) — size/padding stay per-usage since callers differ.
+export const BTN_GHOST = 'font-pixel tracking-[0.02em] text-parchment/80 bg-black/35 border-2 border-parchment/25 rounded-[8px] transition-colors hover:bg-black/55 hover:text-parchment'

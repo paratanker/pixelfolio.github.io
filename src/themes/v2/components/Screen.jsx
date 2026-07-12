@@ -32,7 +32,9 @@ export default function Screen({ title, eyebrow, accent = 'contact', onClose, ch
     >
       <div className="level__bg-dots absolute inset-0 pointer-events-none" aria-hidden="true" />
 
-      <header className="relative z-[2] flex items-start justify-between gap-4 px-[clamp(1.1rem,4vw,3rem)] pt-[clamp(3.4rem,16vh,6.75rem)] sm:pt-[clamp(3rem,9vh,6.2rem)] pb-4">
+      {/* var(--hud-clear) below the sm breakpoint clears the Hud, which can
+          wrap onto up to 3 rows there — see its definition in theme.css. */}
+      <header className="relative z-[2] flex items-start justify-between gap-4 px-[clamp(1.1rem,4vw,3rem)] pt-[var(--hud-clear)] sm:pt-[clamp(3rem,9vh,6.2rem)] pb-4">
         <div>
           <p className={EYEBROW}>{eyebrow}</p>
           <Typewriter as="h2" text={title} speed={22} className={`${HEADING} text-[clamp(1.2rem,min(3.2vw,3.8vh),2.1rem)] mt-2`} />
