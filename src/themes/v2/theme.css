@@ -39,6 +39,12 @@ body {
   display: none;              /* Chrome/Safari */
 }
 
+/* Crisp (non-antialiased) edges for inline pixel-grid SVG icons, e.g. the HUD
+   speaker and the platform check (see .level-platform__check below). */
+.pixel-icon {
+  shape-rendering: crispEdges;
+}
+
 /* Screen's scroll region auto-focuses on open (so arrow/Page keys can scroll
    without a click) and clips overflow, so the default ring's top edge shows
    as a stray line across the whole screen instead of a real focus outline. */
