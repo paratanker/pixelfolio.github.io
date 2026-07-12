@@ -21,7 +21,7 @@ export const CHARACTERS = {
     description: 'Quick across the platforms — favors momentum over caution.',
     portrait: asset('characters/princess.png'),
     idle: asset('characters/princess.png'),
-    walk: [asset('characters/princess.png'), asset('characters/princess-run.png')],
+    walk: [asset('characters/princess-idle.png'), asset('characters/princess-run.png')],
   },
 }
 
